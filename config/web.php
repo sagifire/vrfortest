@@ -20,8 +20,8 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'app\modules\admin\models\AdminUser',
+            'loginUrl' => '/admin/default/login',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -43,14 +43,18 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
+                'admin' => 'admin/default/index',
+                'admin/<action:w+>' => 'admin/default/<action>',
             ],
         ],
-        */
+    ],
+    'modules' => [
+        'admin' => 'app\modules\admin\Module',
     ],
     'params' => $params,
 ];

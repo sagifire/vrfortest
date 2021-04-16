@@ -1,8 +1,15 @@
 <?php
 
-namespace app\models;
+namespace app\modules\admin\models;
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+use yii\base\BaseObject;
+use yii\web\IdentityInterface;
+
+/**
+ * Class AdminUser
+ * @package app\modules\admin\models
+ */
+class AdminUser extends BaseObject implements IdentityInterface
 {
     public $id;
     public $username;
@@ -17,13 +24,6 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
             'password' => 'admin',
             'authKey' => 'test100key',
             'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
         ],
     ];
 
